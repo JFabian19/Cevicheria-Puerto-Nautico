@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Pacifico', 'Lobster', cursive;
+  --font-body: 'Nunito', 'Varela Round', sans-serif;
+  --font-label: 'Montserrat', sans-serif;
+  --font-robot: 'Space Grotesk', sans-serif;
+
+  --color-brand-bg: #FDFBF4;
+  --color-brand-surface: #FFFFFF;
+  --color-brand-text: #333333;
+
+  --color-cat-sandwich: #C62828;
+  --color-cat-clasicos: #F47C36;
+  --color-cat-especiales: #4CAF50;
+  --color-cat-frias: #7E57C2;
+  --color-cat-frozen: #E91E63;
+  
+  --color-cat-calientes: #C62828;
+
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
+  --radius-full: 9999px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-brand-bg);
+    color: var(--color-brand-text);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 400;
+  }
+}
+
+@layer utilities {
+  .text-cat-sandwich { color: var(--color-cat-sandwich); }
+  .bg-cat-sandwich { background-color: var(--color-cat-sandwich); }
+  .border-cat-sandwich { border-color: var(--color-cat-sandwich); }
+  
+  .text-cat-clasicos { color: var(--color-cat-clasicos); }
+  .bg-cat-clasicos { background-color: var(--color-cat-clasicos); }
+  .border-cat-clasicos { border-color: var(--color-cat-clasicos); }
+
+  .text-cat-especiales { color: var(--color-cat-especiales); }
+  .bg-cat-especiales { background-color: var(--color-cat-especiales); }
+  .border-cat-especiales { border-color: var(--color-cat-especiales); }
+
+  .text-cat-calientes { color: var(--color-cat-calientes); }
+  .bg-cat-calientes { background-color: var(--color-cat-calientes); }
+  .border-cat-calientes { border-color: var(--color-cat-calientes); }
+
+  .text-cat-frias { color: var(--color-cat-frias); }
+  .bg-cat-frias { background-color: var(--color-cat-frias); }
+  .border-cat-frias { border-color: var(--color-cat-frias); }
+
+  .text-cat-frozen { color: var(--color-cat-frozen); }
+  .bg-cat-frozen { background-color: var(--color-cat-frozen); }
+  .border-cat-frozen { border-color: var(--color-cat-frozen); }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
