@@ -4,6 +4,19 @@ import { Image as ImageIcon } from 'lucide-react';
 import MenuItemCard from './MenuItemCard';
 import type { MenuCategory, LayoutDesign } from '../types';
 
+const getCategoryImageSrc = (categoria: string) => {
+  const mapping: Record<string, string> = {
+    'CEVICHES': 'ceviches.webp',
+    'Frituras & Chicharrón': 'frituras-chicharron.webp',
+    'COMBOS & ARROCES': 'combos-arroces.webp',
+    'COMBINADOS': 'combinados.webp',
+    'PLATOS ESPECIALES': 'platos-especiales.webp',
+    'PORCIONES': 'porciones.webp',
+    'BEBIDAS & POSTRES': 'bebidas-postres.webp'
+  };
+  return mapping[categoria] ? `/${mapping[categoria]}` : null;
+};
+
 interface MenuProps {
   menuData: MenuCategory[];
   diseno: LayoutDesign;
@@ -130,19 +143,50 @@ export default function Menu({ menuData, diseno }: MenuProps) {
                   </h2>
                 </div>
 
-                {/* Elegant Placeholder for "Aca va imagen" (Caleteado) */}
-                <div 
-                  style={{ borderRadius: 'var(--radius-custom)' }}
-                  className="w-full h-36 md:h-48 mb-8 flex flex-col items-center justify-center border-2 border-dashed border-black/15 bg-black/[0.02] relative group overflow-hidden select-none"
-                >
-                  <ImageIcon size={32} className="text-black/20 mb-2 group-hover:scale-110 transition-transform duration-300" />
-                  <span 
-                    style={{ color: 'var(--color-text-body)' }}
-                    className="font-medium text-xs md:text-sm tracking-widest uppercase opacity-40 font-body"
-                  >
-                    acá va imagen de {cat.categoria.toLowerCase()}
-                  </span>
-                </div>
+                {/* Category Banner Image with Fallback */}
+                {(() => {
+                  const imgSrc = getCategoryImageSrc(cat.categoria);
+                  
+                  return imgSrc ? (
+                    <div 
+                      style={{ borderRadius: 'var(--radius-custom)' }}
+                      className="w-full mb-8 relative group overflow-hidden select-none shadow-md border border-black/5 bg-black/[0.01]"
+                    >
+                      <img 
+                        src={imgSrc} 
+                        alt={cat.categoria} 
+                        className="w-full h-auto block transition-transform duration-700 ease-out group-hover:scale-[1.01]"
+                        loading="lazy"
+                        onError={(e) => {
+                          e.currentTarget.style.display = 'none';
+                        }}
+                      />
+                      {/* Premium subtle gradient overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
+                      
+                      {/* Decorative tag */}
+                      <div className="absolute bottom-3 left-4 md:bottom-4 md:left-6 z-10">
+                        <span className="text-white text-[10px] md:text-xs font-semibold tracking-widest uppercase bg-black/50 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/10 font-body">
+                          Especialidad
+                        </span>
+                      </div>
+                    </div>
+                  ) : (
+                    /* Elegant Placeholder for "Aca va imagen" (Caleteado) */
+                    <div 
+                      style={{ borderRadius: 'var(--radius-custom)' }}
+                      className="w-full h-36 md:h-48 mb-8 flex flex-col items-center justify-center border-2 border-dashed border-black/15 bg-black/[0.02] relative group overflow-hidden select-none"
+                    >
+                      <ImageIcon size={32} className="text-black/20 mb-2 group-hover:scale-110 transition-transform duration-300" />
+                      <span 
+                        style={{ color: 'var(--color-text-body)' }}
+                        className="font-medium text-xs md:text-sm tracking-widest uppercase opacity-40 font-body"
+                      >
+                        acá va imagen de {cat.categoria.toLowerCase()}
+                      </span>
+                    </div>
+                  );
+                })()}
 
                 {/* Grid of items (responsive columns based on design settings) */}
                 <motion.div 
