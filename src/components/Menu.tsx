@@ -6,6 +6,7 @@ import type { MenuCategory, LayoutDesign } from '../types';
 
 const getCategoryImageSrc = (categoria: string) => {
   const mapping: Record<string, string> = {
+    'RECOMENDADOS': 'recomendados.webp',
     'CEVICHES': 'ceviches.webp',
     'Frituras & Chicharrón': 'frituras-chicharron.webp',
     'COMBOS & ARROCES': 'combos-arroces.webp',

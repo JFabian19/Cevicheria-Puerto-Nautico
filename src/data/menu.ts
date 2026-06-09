@@ -51,6 +51,47 @@ export const menuData: DynamicMenuJSON = {
   },
   "menu": [
     {
+      "categoria": "RECOMENDADOS",
+      "items": [
+        {
+          "nombre": "Leche de Tigre",
+          "descripcion": "Fresco concentrado de limón, pescado del día y especias, servido con choclo y camote.",
+          "precio": 18,
+          "imagen": "/images/leche_de_tigre.png"
+        },
+        {
+          "nombre": "Ceviche Clásico",
+          "descripcion": "Cubos de pescado marinado en zumo de limón y ají limo, acompañado de cebolla roja, choclo y camote.",
+          "precio": 20,
+          "imagen": "/images/ceviche_clasico.png"
+        },
+        {
+          "nombre": "Pescado Frito",
+          "descripcion": "Filete de pescado fresco frito al término perfecto, acompañado de yucas doradas y salsa criolla.",
+          "precio": 18,
+          "imagen": "/images/pescado_frito.png"
+        },
+        {
+          "nombre": "Trío Marino",
+          "descripcion": "Combinación perfecta de Ceviche Clásico, Arroz con Mariscos y Chicharrón de Pescado.",
+          "precio": 28,
+          "imagen": "/images/trio_marino.png"
+        },
+        {
+          "nombre": "Ronda Marina",
+          "descripcion": "Un exquisito banquete para compartir: Ceviche, Arroz con Mariscos, Chicharrón de Pescado, Chicharrón de Pota y Leche de Tigre.",
+          "precio": 42,
+          "imagen": "/images/ronda_marina.png"
+        },
+        {
+          "nombre": "Chicharrón de Pescado + Ceviche",
+          "descripcion": "El dúo marino preferido de la casa, combinando ceviche fresco con crocante chicharrón.",
+          "precio": 25,
+          "imagen": "/images/chicharron_ceviche.png"
+        }
+      ]
+    },
+    {
       "categoria": "CEVICHES",
       "items": [
         {
@@ -82,6 +123,12 @@ export const menuData: DynamicMenuJSON = {
           "nombre": "Pescado Frito",
           "descripcion": "Promoción: + S/.5 con Ceviche.",
           "precio": 18
+        },
+        {
+          "nombre": "Pollo Crispy",
+          "descripcion": "Trozos de pechuga de pollo súper crocantes, acompañados de papas fritas y cremas.",
+          "precio": 16,
+          "imagen": "/images/pollo_crispy.png"
         }
       ]
     },

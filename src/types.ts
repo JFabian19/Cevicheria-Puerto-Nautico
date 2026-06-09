@@ -2,6 +2,7 @@ export interface InputMenuItem {
   nombre: string;
   descripcion?: string;
   precio: number;
+  imagen?: string;
 }
 
 export interface MenuItem extends InputMenuItem {

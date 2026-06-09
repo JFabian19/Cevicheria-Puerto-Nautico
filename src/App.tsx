@@ -35,7 +35,7 @@ function App() {
   // Load configuration from local storage on mount
   useEffect(() => {
     try {
-      const savedConfig = localStorage.getItem('dynamicMenuConfig');
+      const savedConfig = localStorage.getItem('dynamicMenuConfig_cevicheria_nautica');
       if (savedConfig) {
         setRawConfig(JSON.parse(savedConfig));
       }
