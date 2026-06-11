@@ -7,6 +7,7 @@ import FloatingOrderButton from './components/FloatingOrderButton';
 import DynamicTheme from './components/DynamicTheme';
 import { OrderProvider } from './context/OrderContext';
 import { menuData as initialMenuData } from './data/menu';
+import { fetchMenuFromGoogleSheets } from './utils/googleSheets';
 import type { DynamicMenuJSON, ProcessedMenuData } from './types';
 
 // Utility to process raw JSON from Gemini (which has no IDs) and inject auto-generated sequential IDs
@@ -32,18 +33,41 @@ function App() {
   const [orderOpen, setOrderOpen] = useState(false);
   const [loading, setLoading] = useState(true);
 
-  // Load configuration from local storage on mount
+  // Load configuration from Google Sheets or fallback to local storage / defaults on mount
   useEffect(() => {
-    try {
-      const savedConfig = localStorage.getItem('dynamicMenuConfig_cevicheria_nautica');
-      if (savedConfig) {
-        setRawConfig(JSON.parse(savedConfig));
+    let isMounted = true;
+    
+    async function loadData() {
+      try {
+        const fetchedMenu = await fetchMenuFromGoogleSheets();
+        if (isMounted) {
+          setRawConfig(prev => ({
+            ...prev,
+            menu: fetchedMenu
+          }));
+        }
+      } catch (error) {
+        console.error('Failed to load menu from Google Sheets, falling back to local/saved data:', error);
+        try {
+          const savedConfig = localStorage.getItem('dynamicMenuConfig_cevicheria_nautica');
+          if (savedConfig && isMounted) {
+            setRawConfig(JSON.parse(savedConfig));
+          }
+        } catch (storageError) {
+          console.error('Failed to load menu config from localStorage:', storageError);
+        }
+      } finally {
+        if (isMounted) {
+          setLoading(false);
+        }
       }
-    } catch (error) {
-      console.error('Failed to load menu config from localStorage, using defaults:', error);
-    } finally {
-      setLoading(false);
     }
+
+    loadData();
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   // Dynamically update the HTML Document Title to match the restaurant's name

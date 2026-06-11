@@ -61,13 +61,13 @@ export const menuData: DynamicMenuJSON = {
         },
         {
           "nombre": "Ceviche Clásico",
-          "descripcion": "Cubos de pescado marinado en zumo de limón y ají limo, acompañado de cebolla roja, choclo y camote.",
+          "descripcion": "Cubos de pescado marinado en zumo de limón y ají limo, acompañado de cebolla roja, choclo, camote y yuca cocida.",
           "precio": 20,
           "imagen": "/images/ceviche_clasico.png"
         },
         {
           "nombre": "Pescado Frito",
-          "descripcion": "Filete de pescado fresco frito al término perfecto, acompañado de yucas doradas y salsa criolla.",
+          "descripcion": "Pescado frito dorado acompañado de su arroz blanco, yuca frita, platanito frito y su ensalada.",
           "precio": 18,
           "imagen": "/images/pescado_frito.png"
         },
@@ -85,7 +85,7 @@ export const menuData: DynamicMenuJSON = {
         },
         {
           "nombre": "Chicharrón de Pescado + Ceviche",
-          "descripcion": "El dúo marino preferido de la casa, combinando ceviche fresco con crocante chicharrón.",
+          "descripcion": "El dúo marino preferido de la casa, combinando ceviche fresco con crocante chicharrón. Viene con yuquitas fritas.",
           "precio": 25,
           "imagen": "/images/chicharron_ceviche.png"
         }
@@ -121,12 +121,12 @@ export const menuData: DynamicMenuJSON = {
         },
         {
           "nombre": "Pescado Frito",
-          "descripcion": "Promoción: + S/.5 con Ceviche.",
+          "descripcion": "Pescado frito dorado acompañado de su arroz blanco, yuca frita, platanito frito y su ensalada. Promoción: + S/.5 con Ceviche.",
           "precio": 18
         },
         {
           "nombre": "Pollo Crispy",
-          "descripcion": "Trozos de pechuga de pollo súper crocantes, acompañados de papas fritas y cremas.",
+          "descripcion": "Trozos de pollo súper crocantes, acompañados de papas andinas fritas y cremas.",
           "precio": 16,
           "imagen": "/images/pollo_crispy.png"
         }
